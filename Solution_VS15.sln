@@ -45,6 +45,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E05_Repository", "E05_Repos
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E06_Transformations", "E06_Transformations\E06_Transformations.vcxproj", "{CFC5A13E-27EB-44AB-A562-CADF4D45A21C}"
 >>>>>>> aca2fd6b26f52868bb90ff62332e51a50cbbc4bd
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "E05s_Repository", "E05s_Repository\E05s_Repository.vcxproj", "{2DD9F919-629E-43B6-9B81-181B2F761873}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -105,7 +107,14 @@ Global
 		{CFC5A13E-27EB-44AB-A562-CADF4D45A21C}.Debug|x86.Build.0 = Debug|Win32
 		{CFC5A13E-27EB-44AB-A562-CADF4D45A21C}.Release|x86.ActiveCfg = Release|Win32
 		{CFC5A13E-27EB-44AB-A562-CADF4D45A21C}.Release|x86.Build.0 = Release|Win32
+<<<<<<< HEAD
 >>>>>>> aca2fd6b26f52868bb90ff62332e51a50cbbc4bd
+=======
+		{2DD9F919-629E-43B6-9B81-181B2F761873}.Debug|x86.ActiveCfg = Debug|Win32
+		{2DD9F919-629E-43B6-9B81-181B2F761873}.Debug|x86.Build.0 = Debug|Win32
+		{2DD9F919-629E-43B6-9B81-181B2F761873}.Release|x86.ActiveCfg = Release|Win32
+		{2DD9F919-629E-43B6-9B81-181B2F761873}.Release|x86.Build.0 = Release|Win32
+>>>>>>> bbf3363a3dca26ac1d3e76d5d825d68c898dbe88
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +135,10 @@ Global
 		{23B033FF-B677-4F7F-A1DA-CDEDF351EA87} = {0B1C8EE7-E852-45B2-A546-BE37B521048A}
 =======
 		{CFC5A13E-27EB-44AB-A562-CADF4D45A21C} = {0B1C8EE7-E852-45B2-A546-BE37B521048A}
+<<<<<<< HEAD
 >>>>>>> aca2fd6b26f52868bb90ff62332e51a50cbbc4bd
+=======
+		{2DD9F919-629E-43B6-9B81-181B2F761873} = {0B1C8EE7-E852-45B2-A546-BE37B521048A}
+>>>>>>> bbf3363a3dca26ac1d3e76d5d825d68c898dbe88
 	EndGlobalSection
 EndGlobal
