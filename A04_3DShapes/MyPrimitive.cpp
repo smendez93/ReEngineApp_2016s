@@ -110,16 +110,29 @@ void MyPrimitive::GenerateCone(float a_fRadius, float a_fHeight, int a_nSubdivis
 	Init();
 
 	//Your code starts here
-	float fValue = 0.5f;
+	//float fValue = 0.5f;
 	//3--2
 	//|  |
 	//0--1
-	vector3 point0(-fValue, -fValue, fValue); //0
-	vector3 point1(fValue, -fValue, fValue); //1
-	vector3 point2(fValue, fValue, fValue); //2
-	vector3 point3(-fValue, fValue, fValue); //3
+	std::vector<vector3> point;
+	point.push_back(vector3(0.0f));
+	float theta = 0.0f;
+	float steps = (2*PI )/ static_cast<float>(a_nSubdivisions);
 
-	AddQuad(point0, point1, point3, point2);
+	for (int i = 0; i < a_nSubdivisions; i++)
+	{
+		point.push_back(
+			vector3( cos(theta),0.0f, sin(theta) ));
+		theta += steps;
+	}
+
+	//Figure out the height
+	vector3 height(0.0f, a_fHeight, 0.0f );
+
+	for (int i = 1; i < a_nSubdivisions; ++i) 
+	{
+		AddQuad(point[0], point[i], point[(i + 1)], height);
+	}
 
 	//Your code ends here
 	CompileObject(a_v3Color);
@@ -139,12 +152,29 @@ void MyPrimitive::GenerateCylinder(float a_fRadius, float a_fHeight, int a_nSubd
 	//3--2
 	//|  |
 	//0--1
-	vector3 point0(-fValue, -fValue, fValue); //0
-	vector3 point1(fValue, -fValue, fValue); //1
-	vector3 point2(fValue, fValue, fValue); //2
-	vector3 point3(-fValue, fValue, fValue); //3
+	std::vector<vector3> point;
+	point.push_back(vector3(0.0f));
+	float theta = 0.0f;
+	float steps = (2 * PI) / static_cast<float>(a_nSubdivisions);
 
-	AddQuad(point0, point1, point3, point2);
+	for (int i = 0; i < a_nSubdivisions; i++)
+	{
+		point.push_back(
+			vector3(cos(theta), 0.0f, sin(theta)));
+		theta += steps;
+	}
+
+	//Figure out the height
+	vector3 top_height(0.0f, a_fHeight, 0.0f);
+	vector3 bottom_height(0.0f, -(a_fHeight), 0.0f);
+
+	for (int i = 1; i < a_nSubdivisions; ++i)
+	{
+		AddQuad(top_height, point[i], point[(i + 1)], top_height);
+		AddQuad(bottom_height, point[i], point[(i + 1)], top_height);
+
+	}
+
 
 	//Your code ends here
 	CompileObject(a_v3Color);
