@@ -547,11 +547,11 @@ void MyPrimitive::GenerateSphere(float a_fRadius, int a_nSubdivisions, vector3 a
 		right.push_back(static_cast <vector3>(rotation * glm::vec4(m_lVertexPos[i], 1.0f)));
 	}
 
-
 	for (int i = 0; i < nVert; i++)
 	{
 		AddVertexPosition(right[i]);
 	}
+
 
 	//LeftSideFace
 	std::vector<vector3> left;

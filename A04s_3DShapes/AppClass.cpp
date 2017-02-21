@@ -12,11 +12,22 @@ void AppClass::InitVariables(void)
 	m_pPrimitive->GenerateCone(1.0f, 1.0f, 12, REGREEN);
 	m_pPrimitive->GenerateCylinder(1.0f, 2.0f, 7, REBLUE);
 	m_pPrimitive->GenerateTube(1.0f, 0.7f, 2.0f, 7, REYELLOW);
-	m_pPrimitive->GenerateSphere(1.0f, 5, RERED);
+	m_pPrimitive->GenerateSphere(0.5f, 3, RERED);
 }
 
 void AppClass::Update(void)
 {
+	static float fTime = 0.0f;
+	vector3 v3Start= vector3(-5.0f, 0.0f, 0.0f);
+	vector3 v3End = vector3(5.0f, 0.0f, 0.0f);
+	vector3 v3Interpolation = glm::lerp(v3Start,v3End,fTime);
+
+	m_m4Transform = glm::translate(v3Interpolation);
+	
+	fTime += 0.01f;
+
+	if (fTime > 1.0f)
+		fTime = 1.0f;
 	//Update the system's time
 	m_pSystem->UpdateTime();
 
@@ -48,7 +59,7 @@ void AppClass::Display(void)
 	//clear the screen
 	ClearScreen();
 	
-	m_pPrimitive->Render(m_pCameraMngr->GetProjectionMatrix(), m_pCameraMngr->GetViewMatrix(), ToMatrix4(m_qArcBall));
+	m_pPrimitive->Render(m_pCameraMngr->GetProjectionMatrix(), m_pCameraMngr->GetViewMatrix(),m_m4Transform);
 	
 	//Render the grid based on the camera's mode:
 	m_pMeshMngr->AddGridToRenderListBasedOnCamera(m_pCameraMngr->GetCameraMode());
