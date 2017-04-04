@@ -15,7 +15,22 @@ void AppClass::Update(void)
 	dTotalTime += dDeltaTime; //Incrementing the time differences 
 #pragma endregion
 #pragma region YOUR CODE GOES HERE
-	m_m4Steve = glm::mat4(1.0f); // same as m_m4Steve = IDENTITY_M4; setting the identity to steve
+	//m_m4Steve = glm::mat4(1.0f); // same as m_m4Steve = IDENTITY_M4; setting the identity to steve
+	float fStartTime = 0.0f;
+	float fEndTime = 5.0f;
+	float fAngle = MapValue(static_cast<float>(dTotalTime), fStartTime, fEndTime, 0.0f, 360.0f);
+	m_m4Steve = glm::rotate(IDENTITY_M4, fAngle, REAXISZ);
+
+	static float fStartHeight = 0.0f;
+	static float fEndHeight = 5.0f;
+	float fPercent = MapValue(static_cast<float>(dTotalTime), fStartTime, fEndTime, 0.0f, 1.0f);
+	float fHeight = glm::lerp(fStartHeight, fEndHeight, fPercent);
+	m_m4Steve = m_m4Steve * glm::translate(vector3(0.0f, fHeight, 0.0f));
+	if (fPercent > 1.0f)
+	{
+		std::swap(fStartHeight, fEndHeight);
+		dTotalTime = 0.0;
+	}
 #pragma endregion
 #pragma region DOES NOT NEED CHANGES
 	//Set the model matrix
