@@ -27,6 +27,9 @@
     <ClCompile Include="MyBoundingSphereClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyBoundingCubeClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppClass.h">
@@ -36,6 +39,9 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="MyBoundingSphereClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyBoundingCubeClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
